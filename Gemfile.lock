@@ -1,0 +1,90 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (7.1.3.2)
+      activesupport (= 7.1.3.2)
+    activerecord (7.1.3.2)
+      activemodel (= 7.1.3.2)
+      activesupport (= 7.1.3.2)
+      timeout (>= 0.4.0)
+    activesupport (7.1.3.2)
+      base64
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      mutex_m
+      tzinfo (~> 2.0)
+    base64 (0.2.0)
+    bcrypt (3.1.20)
+    bigdecimal (3.1.8)
+    concurrent-ruby (1.2.3)
+    connection_pool (2.4.1)
+    dotenv (3.1.2)
+    drb (2.2.1)
+    event_stream_parser (1.0.0)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.1.0)
+      net-http
+    i18n (1.14.5)
+      concurrent-ruby (~> 1.0)
+    json (2.7.2)
+    minitest (5.22.3)
+    multipart-post (2.4.1)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
+    nio4r (2.7.3)
+    puma (6.4.2)
+      nio4r (~> 2.0)
+    rack (3.0.10)
+    rack-protection (4.0.0)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.0.0)
+      rack (>= 3.0.0)
+    rake (13.2.1)
+    ruby-openai (7.0.1)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
+    ruby2_keywords (0.0.5)
+    sinatra (4.0.0)
+      mustermann (~> 3.0)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.0.0)
+      rack-session (>= 2.0.0, < 3)
+      tilt (~> 2.0)
+    sinatra-activerecord (2.0.27)
+      activerecord (>= 4.1)
+      sinatra (>= 1.0)
+    sqlite3 (2.0.1-arm64-darwin)
+    tilt (2.3.0)
+    timeout (0.4.1)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    uri (0.13.0)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  bcrypt
+  dotenv
+  json
+  puma
+  rake
+  ruby-openai
+  sinatra
+  sinatra-activerecord
+  sqlite3
+
+BUNDLED WITH
+   2.4.6
