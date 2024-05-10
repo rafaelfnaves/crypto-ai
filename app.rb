@@ -5,4 +5,4 @@ require 'sinatra/activerecord'
 require 'dotenv'
 Dotenv.load
 
-set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
+set :database, {adapter: 'sqlite3', database: ENV['DB_PATH']}
