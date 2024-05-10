@@ -4,6 +4,9 @@
 # Permitindo que você armazene facilmente um hash seguro das senhas de seus usuários.
 require 'bcrypt'
 
+# ActiveRecord => ORM (Object-Relational Mapping) para Ruby.
+require 'sinatra/activerecord'
+
 class User < ActiveRecord::Base
   # Relacionamento de um para um com a tabela wallets
   has_one :wallet

@@ -1,0 +1,17 @@
+development:
+  adapter: sqlite3
+  database: db/crypto_ai_sqlite3.db
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/crypto_ai_sqlite3.db
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: sqlite3
+  database: ENV['DATABASE_URL']
+  pool: 5
+  timeout: 5000
