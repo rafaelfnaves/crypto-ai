@@ -10,8 +10,9 @@ class CryptosController
   extend HandleErrors # É um módulo que contém métodos para tratamento de erros [not_found, bad_request]
   extend PromptAi # É um módulo que contém métodos para retornar as mensagens de início e fim do prompt
 
+  # Método que retorna uma lista de todas as criptomoedas
   def self.index
-    cryptos = Crypto.first(100)
+    cryptos = Crypto.all
     { success: true, status: 200, response: { cryptos: } }
   end
 
@@ -20,6 +21,7 @@ class CryptosController
     crypto = Crypto.find_by(symbol: symbol)
     return not_found unless crypto
 
+    # Chama o serviço OpenAiService para retornar uma mensagem com informações sobre a criptomoeda.
     message = OpenAiService.new.call("#{start_prompt}. Sobre a criptomoeda #{crypto.name} - #{crypto.symbol}, atualmente cotada em #{crypto.price} dolares. #{finish_prompt}")
     { success: true, status: 200, response: { crypto_data: JSON.parse(message) } }
   end

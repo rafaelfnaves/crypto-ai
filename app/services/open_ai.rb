@@ -4,6 +4,7 @@ require 'openai'
 require 'dotenv'
 Dotenv.load
 
+# Serviço para interagir com a API da OpenAI
 class OpenAiService
   def initialize
     @openai_client = OpenAI::Client.new(access_token: ENV['OPENAI_KEY'])

@@ -41,6 +41,22 @@ get '/cryptos' do
   end
 end
 
+get '/cryptos/:symbol/info_data' do
+  content_type :json
+
+  symbol = params[:symbol]
+  error 400 unless symbol
+
+  res = CryptosController.info_data(symbol)
+  if res[:success]
+    status res[:status]
+    res[:response].to_json
+  else
+    status res[:status]
+    res[:response].to_json
+  end
+end
+
 post '/users/:id/wallet' do
   content_type :json
 
@@ -68,22 +84,6 @@ get '/users/:id/wallet' do
   error 400 unless user_id
 
   res = WalletsController.show(user_id)
-  if res[:success]
-    status res[:status]
-    res[:response].to_json
-  else
-    status res[:status]
-    res[:response].to_json
-  end
-end
-
-get '/cryptos/:symbol/info_data' do
-  content_type :json
-
-  symbol = params[:symbol]
-  error 400 unless symbol
-
-  res = CryptosController.info_data(symbol)
   if res[:success]
     status res[:status]
     res[:response].to_json

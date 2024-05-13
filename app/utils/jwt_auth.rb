@@ -3,6 +3,7 @@ require 'json'
 require 'dotenv'
 Dotenv.load
 
+# Middleware para autenticação JWT
 class JwtAuth
   def initialize(app, options = {})
     @app = app

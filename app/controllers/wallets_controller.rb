@@ -9,6 +9,7 @@ require './app/models/wallet_crypto'
 class WalletsController
   extend HandleErrors # É um módulo que contém métodos para tratamento de erros [not_found, bad_request]
 
+  # Método para criar uma carteira de criptomoedas
   def self.create(user_id, payload)
     user = User.find(user_id)
     return not_found unless user
@@ -27,6 +28,7 @@ class WalletsController
     { success: true, status: 201, response: { message: 'Carteira criada com sucesso' } }
   end
 
+  # Método para exibir as criptomoedas de uma carteira
   def self.show(user_id)
     user = User.find(user_id)
     return not_found unless user

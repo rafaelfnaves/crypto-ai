@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Módulo para tratamento de erros
 module HandleErrors
   def not_found
     { success: false, status: 404, response: { message: 'Nenhum registro encontrado' } }
