@@ -72,3 +72,19 @@ get '/users/:id/wallet' do
     res[:response].to_json
   end
 end
+
+get '/cryptos/:symbol/info_data' do
+  content_type :json
+
+  symbol = params[:symbol]
+  error 400 unless symbol
+
+  res = CryptosController.info_data(symbol)
+  if res[:success]
+    status res[:status]
+    res[:response].to_json
+  else
+    status res[:status]
+    res[:response].to_json
+  end
+end
