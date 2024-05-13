@@ -71,6 +71,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (0.13.0)
+    will_paginate (4.0.0)
 
 PLATFORMS
   arm64-darwin-22
@@ -86,6 +87,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sqlite3 (~> 1.4)
+  will_paginate (~> 4.0)
 
 BUNDLED WITH
    2.4.6
