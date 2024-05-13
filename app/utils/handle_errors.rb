@@ -2,14 +2,14 @@
 
 module HandleErrors
   def not_found
-    { success: false, response: { message: 'Nenhum registro encontrado', status: 404 } }
+    { success: false, status: 404, response: { message: 'Nenhum registro encontrado' } }
   end
 
   def bad_request
-    { success: false, response: { message: 'Bad Request', status: 400 } }
+    { success: false, status: 400, response: { message: 'Bad Request' } }
   end
 
   def unauthorized
-    { success: false, response: { message: 'Unauthorized', status: 401 } }
+    { success: false, status: 401, response: { message: 'Unauthorized' } }
   end
 end

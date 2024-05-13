@@ -20,6 +20,7 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
+    coderay (1.1.3)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     dotenv (3.1.2)
@@ -34,6 +35,7 @@ GEM
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     json (2.7.2)
+    method_source (1.1.0)
     minitest (5.22.3)
     multipart-post (2.4.1)
     mustermann (3.0.0)
@@ -42,6 +44,9 @@ GEM
     net-http (0.4.1)
       uri
     nio4r (2.7.3)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     puma (6.4.2)
       nio4r (~> 2.0)
     rack (3.0.10)
@@ -71,7 +76,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (0.13.0)
-    will_paginate (4.0.0)
 
 PLATFORMS
   arm64-darwin-22
@@ -81,13 +85,13 @@ DEPENDENCIES
   dotenv
   faraday
   json
+  pry (~> 0.14.2)
   puma
   rake
   ruby-openai
   sinatra
   sinatra-activerecord
   sqlite3 (~> 1.4)
-  will_paginate (~> 4.0)
 
 BUNDLED WITH
    2.4.6

@@ -3,7 +3,8 @@
 # ActiveRecord => ORM (Object-Relational Mapping) para Ruby.
 require 'sinatra/activerecord'
 
-class Crypto < ActiveRecord::Base
-  has_many :wallet_cryptos
-  has_many :wallets, through: :wallet_cryptos
+# Tabela intermediaria entre Wallet e Crypto
+class WalletCrypto < ActiveRecord::Base
+  belongs_to :wallet
+  belongs_to :crypto
 end

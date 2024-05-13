@@ -5,6 +5,6 @@ require './app/models/crypto'
 class CryptosController
   def self.index
     cryptos = Crypto.first(100)
-    { success: true, response: { cryptos:, status: 200 } }
+    { success: true, status: 200, response: { cryptos: } }
   end
 end
