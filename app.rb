@@ -7,9 +7,13 @@ require 'pry'
 require 'json'
 Dotenv.load
 
+require './app/utils/jwt_auth'
 require './app/controllers/users_controller'
 require './app/controllers/cryptos_controller'
 require './app/controllers/wallets_controller'
+
+# Use JwtAuth como middleware para autenticação JWT
+use JwtAuth, exclude: ['/login']
 
 post '/login' do
   content_type :json
