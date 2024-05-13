@@ -78,6 +78,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   dotenv
+  faraday
   json
   puma
   rake
