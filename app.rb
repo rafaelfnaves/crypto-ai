@@ -61,11 +61,9 @@ post '/users/:id/wallet' do
   content_type :json
 
   user_id = params[:id]
-
-  # {"cryptos"=>["BTC", "ETH"]}
   payload = JSON.parse(request.body.read)
 
-  return status 400 unless user_id && payload.key?('cryptos')
+  error 400 unless user_id && payload.key?('cryptos')
 
   res = WalletsController.create(user_id, payload)
   if res[:success]
