@@ -5,14 +5,16 @@ Dotenv.load
 
 # Middleware para autenticação JWT
 class JwtAuth
-  def initialize(app, options = {})
+  def initialize(app)
     @app = app
-    @exclude = options[:exclude] || []
   end
 
   def call(env)
+    # Ignorar a autenticação JWT para a rota de login
+    return @app.call(env) if env['PATH_INFO'] == '/login'
+
     # Verificar se a requisição contém um token JWT nos cabeçalhos de autorização
-    if !@exclude.include?(env['PATH_INFO']) && env['HTTP_AUTHORIZATION'] && env['HTTP_AUTHORIZATION'].start_with?('Bearer ')
+    if env['HTTP_AUTHORIZATION'] && env['HTTP_AUTHORIZATION'].start_with?('Bearer ')
       token = env['HTTP_AUTHORIZATION'].split(' ')[1]
       begin
         payload = JWT.decode(token, ENV['SECRET_KEY'], true, algorithm: 'HS256').first
@@ -20,6 +22,9 @@ class JwtAuth
       rescue JWT::DecodeError
         return [401, { 'Content-Type' => 'application/json' }, [{ error: 'Token inválido' }.to_json]]
       end
+    else
+      # Se não houver token JWT presente e não for a rota de login, retorna um erro 401
+      return [401, { 'Content-Type' => 'application/json' }, [{ error: 'Token JWT não fornecido' }.to_json]]
     end
 
     @app.call(env)

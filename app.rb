@@ -13,7 +13,7 @@ require './app/controllers/cryptos_controller'
 require './app/controllers/wallets_controller'
 
 # Use JwtAuth como middleware para autenticação JWT
-use JwtAuth, exclude: ['/login']
+use JwtAuth
 
 post '/login' do
   content_type :json
