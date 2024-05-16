@@ -4,7 +4,7 @@ require './app/services/coin_api/cryptos.rb'
 
 # create user
 #
-user = User.create(name: 'rafael teste', email: 'email@teste.com', password: '123456')
+user = User.create(name: 'user test', email: 'email@test.com', password: '123456')
 p user
 
 
@@ -12,7 +12,7 @@ p user
 #
 response = CoinApi::Cryptos.new.call
 
-# return if response[:success] == false
+return if response[:success] == false
 
 response[:cryptos].each do |crypto|
   Crypto.create!(
